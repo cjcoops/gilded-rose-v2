@@ -83,7 +83,7 @@ describe GildedRose do
     end
 
   end
-  
+
   describe "backstage passes" do
 
     it "reduces sellin by 1" do
@@ -119,11 +119,6 @@ describe GildedRose do
         expect(items[0].quality).to eq 12
       end
 
-      it "quality can not go above 50" do
-        items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 10, 49)]
-        GildedRose.new(items).update_quality()
-        expect(items[0].quality).to eq 50
-      end
     end
 
     context "sellin is 5 or less and greater than 0" do
@@ -133,11 +128,6 @@ describe GildedRose do
         expect(items[0].quality).to eq 13
       end
 
-      it "quality can not go above 50" do
-        items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 48)]
-        GildedRose.new(items).update_quality()
-        expect(items[0].quality).to eq 50
-      end
     end
 
   end
