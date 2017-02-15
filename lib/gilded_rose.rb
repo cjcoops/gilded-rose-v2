@@ -14,6 +14,8 @@ class GildedRose
         return aged_brie_update_quality(item)
       when "Sulfuras, Hand of Ragnaros"
         return sulfuras_update_quality(item)
+      when "Backstage passes to a TAFKAL80ETC concert"
+        return backstage_passes_update_quality(item)
       end
 
 
@@ -78,6 +80,9 @@ class GildedRose
   end
 
   def sulfuras_update_quality(item)
+  end
+
+  def backstage_passes_update_quality(item)
   end
 end
 
