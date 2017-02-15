@@ -6,6 +6,9 @@ class GildedRose
 
   def update_quality()
     @items.each do |item|
+
+      return normal_update_quality(item) if item.name == "normal"
+
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
@@ -51,7 +54,16 @@ class GildedRose
       end
     end
   end
+
+  def normal_update_quality(item)
+    item.sell_in -= 1
+    return if item.quality == 0
+    item.quality -= 1
+    item.quality -= 1 if item.sell_in <= 0
+  end
 end
+
+
 
 class Item
   attr_accessor :name, :sell_in, :quality

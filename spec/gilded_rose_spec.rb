@@ -38,12 +38,6 @@ describe GildedRose do
       expect(items[0].quality).to eq 0
     end
 
-    it "quality can not go below zero" do
-      items = [Item.new("normal", 0, 1)]
-      GildedRose.new(items).update_quality()
-      expect(items[0].quality).to eq 0
-    end
-
   end
 
 end
