@@ -1,6 +1,6 @@
 require_relative 'normal'
 require_relative 'brie'
-require_relative 'sulfuras'
+require_relative 'category'
 require_relative 'backstage_pass'
 
 class GildedRose
@@ -25,7 +25,7 @@ class GildedRose
       when "Aged Brie"
         return Brie
       when "Sulfuras, Hand of Ragnaros"
-        return Sulfuras
+        return Category
       when "Backstage passes to a TAFKAL80ETC concert"
         return BackstagePass
     end

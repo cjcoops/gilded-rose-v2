@@ -6,4 +6,7 @@ class Category
     @sell_in, @quality = sell_in, quality
   end
 
+  def update_quality
+  end
+
 end
