@@ -7,8 +7,12 @@ class GildedRose
   def update_quality()
     @items.each do |item|
 
-      return normal_update_quality(item) if item.name == "normal"
-      return aged_brie_update_quality(item) if item.name == "Aged Brie"
+      case item.name
+      when "normal"
+        return normal_update_quality(item)
+      when "Aged Brie"
+        return aged_brie_update_quality(item)
+      end
 
 
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
