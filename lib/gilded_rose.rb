@@ -5,6 +5,13 @@ require_relative 'backstage_pass'
 
 class GildedRose
 
+  DEFAULT_CLASS = Category
+  SPECIALIZED_CLASSES = {
+    'normal' => Normal,
+    'Aged Brie' => Brie,
+    'Backstage passes to a TAFKAL80ETC concert' => BackstagePass
+  }
+
   def initialize(items)
     @items = items
   end
@@ -12,7 +19,9 @@ class GildedRose
   def update_quality()
     @items.each do |item|
       index = @items.index(item)
-      categorised_item = klass_for(item).new(item.sell_in, item.quality)
+      categorised_item =
+        (SPECIALIZED_CLASSES[item.name] || DEFAULT_CLASS)
+          .new(item.sell_in, item.quality)
       categorised_item.update_quality
       @items[index] = categorised_item
     end
