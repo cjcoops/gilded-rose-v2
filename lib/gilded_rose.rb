@@ -26,19 +26,6 @@ class GildedRose
       @items[index] = categorised_item
     end
   end
-
-  def klass_for(item)
-    case item.name
-      when "normal"
-        return Normal
-      when "Aged Brie"
-        return Brie
-      when "Sulfuras, Hand of Ragnaros"
-        return Category
-      when "Backstage passes to a TAFKAL80ETC concert"
-        return BackstagePass
-    end
-  end
 end
 
 class Item
