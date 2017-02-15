@@ -12,28 +12,22 @@ class GildedRose
   def update_quality()
     @items.each do |item|
       index = @items.index(item)
-      @items[index] = item_handler(item)
+      categorised_item = klass_for(item).new(item.sell_in, item.quality)
+      categorised_item.update_quality
+      @items[index] = categorised_item
     end
   end
 
-  def item_handler(item)
+  def klass_for(item)
     case item.name
       when "normal"
-        item = Normal.new(item.sell_in, item.quality)
-        item.update_quality
-        item
+        return Normal
       when "Aged Brie"
-        item = Brie.new(item.sell_in, item.quality)
-        item.update_quality
-        item
+        return Brie
       when "Sulfuras, Hand of Ragnaros"
-        item = Sulfuras.new(item.sell_in, item.quality)
-        item.update_quality
-        item
+        return Sulfuras
       when "Backstage passes to a TAFKAL80ETC concert"
-        item = BackstagePass.new(item.sell_in, item.quality)
-        item.update_quality
-        item
+        return BackstagePass
     end
   end
 end
