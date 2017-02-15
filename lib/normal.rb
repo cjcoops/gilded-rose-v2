@@ -1,10 +1,6 @@
-class Normal
+require_relative 'category'
 
-  attr_reader :sell_in, :quality
-
-  def initialize(sell_in, quality)
-    @sell_in, @quality = sell_in, quality
-  end
+class Normal < Category
 
   def update_quality
     @sell_in -= 1

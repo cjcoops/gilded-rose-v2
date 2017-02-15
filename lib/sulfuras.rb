@@ -1,10 +1,6 @@
-class Sulfuras
+require_relative 'category'
 
-  attr_reader :sell_in, :quality
-
-  def initialize(sell_in, quality)
-    @sell_in, @quality = sell_in, quality
-  end
+class Sulfuras < Category
 
   def update_quality
   end
