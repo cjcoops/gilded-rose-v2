@@ -12,6 +12,8 @@ class GildedRose
         return normal_update_quality(item)
       when "Aged Brie"
         return aged_brie_update_quality(item)
+      when "Sulfuras, Hand of Ragnaros"
+        return sulfuras_update_quality(item)
       end
 
 
@@ -73,6 +75,9 @@ class GildedRose
     return if item.quality >= 50
     item.quality += 1
     item.quality += 1 if item.sell_in <= 0
+  end
+
+  def sulfuras_update_quality(item)
   end
 end
 

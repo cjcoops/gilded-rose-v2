@@ -42,30 +42,46 @@ describe GildedRose do
 
   describe "aged brie" do
 
-      it "increases quality by 1" do
-        items = [Item.new("Aged Brie", 10, 10)]
-        GildedRose.new(items).update_quality()
-        expect(items[0].quality).to eq 11
-      end
-      #
-      it "increases quality by 2 if sellin 0 or less" do
-        items = [Item.new("Aged Brie", 0, 10)]
-        GildedRose.new(items).update_quality()
-        expect(items[0].quality).to eq 12
-      end
-
-      it "reduces sellin by 1" do
-        items = [Item.new("Aged Brie", 10, 10)]
-        GildedRose.new(items).update_quality()
-        expect(items[0].sell_in).to eq 9
-      end
-
-      it "quality can not go above 50" do
-        items = [Item.new("Aged Brie", 10, 50)]
-        GildedRose.new(items).update_quality()
-        expect(items[0].quality).to eq 50
-      end
-
+    it "increases quality by 1" do
+      items = [Item.new("Aged Brie", 10, 10)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 11
     end
+    #
+    it "increases quality by 2 if sellin 0 or less" do
+      items = [Item.new("Aged Brie", 0, 10)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 12
+    end
+
+    it "reduces sellin by 1" do
+      items = [Item.new("Aged Brie", 10, 10)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq 9
+    end
+
+    it "quality can not go above 50" do
+      items = [Item.new("Aged Brie", 10, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+    end
+
+  end
+
+  describe "sulfuras" do
+
+    it "quality does not change" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 10, 80)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 80
+    end
+
+    it "sellin does not change" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 10, 80)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq 10
+    end
+
+  end
 
 end
